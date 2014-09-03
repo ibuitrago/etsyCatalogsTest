@@ -33,13 +33,9 @@
 
 - (void)insertPaginationInfo:(NSDictionary *)dictionary withCount:(int)count
 {
-    self.pagination = [[ResultPagination alloc] init];
-    self.pagination.pageLimit = [[dictionary objectForKey:@"effective_limit"] intValue];
-    self.pagination.currentOffset = [[dictionary objectForKey:@"effective_offset"] intValue];
-    self.pagination.nextOffset = [[dictionary objectForKey:@"next_offset"] intValue];
-    self.pagination.currentPage = [[dictionary objectForKey:@"effective_page"] intValue];
-    self.pagination.nextPage = [[dictionary objectForKey:@"next_page"] intValue];
-    self.pagination.totalCount = count;
+    NSMutableDictionary *paginationDict = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    [paginationDict setValue:[NSNumber numberWithInt:count] forKey:@"count"];
+    self.pagination = [ResultPagination createResultPaginationFromDictionary:paginationDict];
 }
 
 - (void)insertCatalogItem:(NSDictionary *)dictionary

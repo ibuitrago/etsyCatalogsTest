@@ -110,7 +110,7 @@
                                               cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                               otherButtonTitles:nil];
         [alert show];
-    }
+    } 
 }
 
 - (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(int)count

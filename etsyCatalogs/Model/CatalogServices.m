@@ -44,24 +44,10 @@
                          block(catalogResult, nil);
                      }
                  } else {   // If the results has no registries, we return an error reporting that
-                     if (block) {
-                         NSString *desc = NSLocalizedString(@"No results found", nil);
-                         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc};
-                         NSError *noResultsError = [NSError errorWithDomain:kListingModelErrorDomain
-                                                                          code:4020
-                                                                      userInfo:userInfo];
-                         block(nil, noResultsError);
-                     }
+                     [CatalogServices reportErrorWithCode:4020 andMessage:NSLocalizedString(@"No results found", nil) toBlock:block];
                  }
              } else {   // We are expecting a specific dictionary, if the response is different then is an error
-                 if (block) {
-                     NSString *desc = NSLocalizedString(@"Bad response from server", nil);
-                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc};
-                     NSError *noJsonObjectError = [NSError errorWithDomain:kListingModelErrorDomain
-                                                                      code:4001
-                                                                  userInfo:userInfo];
-                     block(nil, noJsonObjectError);
-                 }
+                 [CatalogServices reportErrorWithCode:4001 andMessage:NSLocalizedString(@"Bad response from server", nil) toBlock:block];
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -86,8 +72,10 @@
              if ([responseObject isKindOfClass:[NSDictionary class]]) {
                  NSDictionary *responseDict = (NSDictionary *)responseObject;
                  
+                 // So we need to check if there're actually results
                  int count = [[responseDict objectForKey:@"count"] intValue];
                  if (count) {
+                     // And if we got results, we create the images objects and add them to the array
                      NSMutableArray *images = [NSMutableArray array];
                      NSDictionary *results = [responseDict objectForKey:@"results"];
                      for (NSDictionary *result in results) {
@@ -101,23 +89,10 @@
                      }
                  } else {
                      // If the results has no registries, we return an error reporting that
-                     if (block) {
-                         NSString *desc = NSLocalizedString(@"No results found", nil);
-                         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc};
-                         NSError *noResultsError = [NSError errorWithDomain:kListingModelErrorDomain
-                                                                       code:4020
-                                                                   userInfo:userInfo];
-                         block(nil, noResultsError);
-                     }                 }
-             } else {   // We are expecting a specific dictionary, if the response is different then its an error
-                 if (block) {
-                     NSString *desc = NSLocalizedString(@"Bad response from server", nil);
-                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc};
-                     NSError *noJsonObjectError = [NSError errorWithDomain:kListingModelErrorDomain
-                                                                      code:4001
-                                                                  userInfo:userInfo];
-                     block(nil, noJsonObjectError);
+                     [CatalogServices reportErrorWithCode:4020 andMessage:NSLocalizedString(@"No results found", nil) toBlock:block];
                  }
+             } else {   // We are expecting a specific dictionary, if the response is different then its an error
+                 [CatalogServices reportErrorWithCode:4001 andMessage:NSLocalizedString(@"Bad response from server", nil) toBlock:block];
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -125,6 +100,20 @@
                  block(nil, error);
              }
          }];
+}
+
+
+#pragma mark - Private methods
++ (void)reportErrorWithCode:(int)code andMessage:(NSString *)desc toBlock:(void (^)(id object, NSError *error))block
+{
+    if (block) {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey : desc};
+        NSError *error = [NSError errorWithDomain:kListingModelErrorDomain
+                                                         code:code
+                                                     userInfo:userInfo];
+        block(nil, error);
+    }
+
 }
 
 @end

@@ -23,36 +23,31 @@
 - (void)rewindList
 {
     if (self.currentPage > 0) {
+        // If the previous page exists then we proceed
         self.currentPage--;
         [self getListPage];
     } else {
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
-                [self.delegate catalogsDatasource:self DidFailWithError:nil];
-            }
-        }
+        // If we cannot go to previous page, we need to report to the delegate
+        [self reportErrorToDelegate:nil];
     }
 }
 
 - (void)fastForwardList
 {
+    // Here we need to control if we have results and also if there's a next page
     BOOL valid = NO;
-    if (self.catalogResults) {
-        if (self.catalogResults.pagination) {
-            if (self.catalogResults.pagination.nextPage > self.currentPage) {
-                self.currentPage++;
-                [self getListPage];
-                valid = YES;
-            }
+    if (self.catalogResults && self.catalogResults.pagination) {
+        if (self.catalogResults.pagination.nextPage > self.currentPage) {
+            // If we have next page, we proceed
+            self.currentPage++;
+            [self getListPage];
+            valid = YES;
         }
     }
     
+    // In case the next page is not valid or doesn't exists, we need to report to the delegate
     if (!valid) {
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
-                [self.delegate catalogsDatasource:self DidFailWithError:nil];
-            }
-        }
+        [self reportErrorToDelegate:nil];
     }
 }
 
@@ -70,11 +65,7 @@
     [CatalogServices getCatalogListingsByWeywords:self.currentKeywords inPage:self.currentPage withBlock:^(CatalogResult *catalogResults, NSError *error) {
         if (error) {
             // Report the error
-            if (self.delegate) {
-                if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
-                    [self.delegate catalogsDatasource:self DidFailWithError:error];
-                }
-            }
+            [self reportErrorToDelegate:error];
         } else {
             // Everything went just OK, we reload the table and report to the delegate
             self.catalogResults = catalogResults;
@@ -88,7 +79,15 @@
     }];
 }
 
-
+/// Method that encapsulates the logic to call the delegate's method when we have to report an error
+- (void)reportErrorToDelegate:(NSError *)error
+{
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
+            [self.delegate catalogsDatasource:self DidFailWithError:error];
+        }
+    }
+}
 
 #pragma mark - Table View
 
@@ -101,35 +100,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    ListingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableViewCell" forIndexPath:indexPath];
-//    
-//    if (cell == nil) {
-//        cell = [[ListingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListingTableViewCell"];
-//    }
-//    
-//    CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:indexPath.row];
-//    cell.summaryLabel.text = catalogItem.itemTitle;
-//    if (catalogItem.images.count) {
-//        CatalogListingImage *catalogImage = [catalogItem.images objectAtIndex:0];
-//        NSString *urlImg = catalogImage.url170x135;
-//        [cell.listingImage setImageWithURL:[NSURL URLWithString:urlImg]];
-//    } else {
-//        [CatalogServices getListingImagesForListingID:catalogItem.listingID withBlock:^(NSArray *imagesResult, NSError *error) {
-//            if (error) {
-//                // TODO: Do something with the error.
-//            } else {
-//                if (imagesResult.count) {
-//                    CatalogListingImage *img0 = [imagesResult objectAtIndex:0];
-//                    CatalogItem *itemFound = [self.catalogResults getCatalogItemWithListingID:img0.listingID];
-//                    if (itemFound) {
-//                        itemFound.images = [NSMutableArray arrayWithArray:imagesResult];
-//                    }
-//                }
-//            }
-//        }];
-//    }
-//    return cell;
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableViewCell" forIndexPath:indexPath];
     
     UILabel *titleCell = (UILabel *)[cell viewWithTag:100];
@@ -146,19 +116,7 @@
         NSString *urlImg = catalogImage.url170x135;
         [imageCell setImageWithURL:[NSURL URLWithString:urlImg]];
     } else {
-        [CatalogServices getListingImagesForListingID:catalogItem.listingID withBlock:^(NSArray *imagesResult, NSError *error) {
-            if (error) {
-                // TODO: Do something with the error.
-            } else {
-                if (imagesResult.count) {
-                    CatalogListingImage *img0 = [imagesResult objectAtIndex:0];
-                    CatalogItem *itemFound = [self.catalogResults getCatalogItemWithListingID:img0.listingID];
-                    if (itemFound) {
-                        itemFound.images = [NSMutableArray arrayWithArray:imagesResult];
-                    }
-                }
-            }
-        }];
+        [self initialSetOfImagesForListingID:catalogItem.listingID];
     }
     
     return cell;
@@ -166,6 +124,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // We are not allowing selection in the rows of the catalogs listing table
     ListingTableViewCell *cell = (ListingTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:NO];
 }
@@ -186,6 +145,29 @@
     }
 }
 
+
+- (void)initialSetOfImagesForListingID:(long long)listingId
+{
+    [CatalogServices getListingImagesForListingID:listingId withBlock:^(NSArray *imagesResult, NSError *error) {
+        // Let's check if everything went OK
+        if (error) {
+            [self reportErrorToDelegate:error];
+        } else {
+            if (imagesResult.count) {
+                CatalogListingImage *img0 = [imagesResult objectAtIndex:0];
+                CatalogItem *itemFound = [self.catalogResults getCatalogItemWithListingID:img0.listingID];
+                if (itemFound) {
+                    // We just can work only if we have found the catalog item
+                    itemFound.images = [NSMutableArray arrayWithArray:imagesResult];
+                    
+                    int row = 0;
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+                    
+                }
+            }
+        }
+    }];
+}
 
 
 @end

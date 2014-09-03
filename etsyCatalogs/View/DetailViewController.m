@@ -61,13 +61,17 @@ static double kPreferredImageWidth = 285.0;
         double imgW = kPreferredImageWidth;
         double imgH = (h * imgW) / w;
         
+        // At the end we create our image
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.frame = CGRectMake(x,
                                      y,
                                      imgW,
                                      imgH);
+        
+        // Create the image async
         [imageView setImageWithURL:[NSURL URLWithString:image0.urlFullSize]];
         
+        // Then add it to the scroller and make the calcs to the next onw
         [self.imageScroller addSubview:imageView];
         
         x += imgW + 4;
@@ -75,6 +79,8 @@ static double kPreferredImageWidth = 285.0;
             maxHeight = imgH;
         }
     }
+    
+    // We need to resize the image scroller to display all the images height with no vertical scrolling
     self.imageScroller.frame = CGRectMake(self.imageScroller.frame.origin.x,
                                           self.imageScroller.frame.origin.y,
                                           self.imageScroller.frame.size.width,

@@ -33,4 +33,5 @@
 
 /// Return the count of registries currently in the catalogs result array
 - (int)count;
+
 @end
