@@ -18,17 +18,14 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView *contentScroller;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIView *bottomContainer;
+@property (nonatomic, strong) IBOutlet UIScrollView *imageScroller;
 @property (nonatomic, strong) IBOutlet UILabel *priceTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
-@property (nonatomic, strong) IBOutlet UITextView *descriptionView;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionView;
 
 
 @property (nonatomic, strong) CatalogItem *detailItem;
 
-
-- (void)setCatalogDetail:(CatalogItem *)theCatalog;
 
 
 @end

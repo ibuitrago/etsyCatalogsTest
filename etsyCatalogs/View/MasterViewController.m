@@ -46,24 +46,27 @@
 - (void)nextPage
 {
     [self.catalogsDatasource fastForwardList];
+    self.loadingView.hidden = NO;
+    [self.loadingView startAnimating];
 }
 
 - (void)previousPage
 {
     [self.catalogsDatasource rewindList];
+    self.loadingView.hidden = NO;
+    [self.loadingView startAnimating];
 }
 
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
+    if ([[segue identifier] isEqualToString:@"ShowDetail"]) {
         if (self.catalogsDatasource.catalogResults.count) {
+            UIButton *detailButton = (UIButton *)sender;
             DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-            CatalogItem *item = [self.catalogsDatasource.catalogResults getCatalogItemByIndex:indexPath.row];
-            [controller setCatalogDetail:item];
+            CatalogItem *item = [self.catalogsDatasource.catalogResults getCatalogItemByIndex:detailButton.tag];
+            controller.detailItem = item;
             controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
             controller.navigationItem.leftItemsSupplementBackButton = YES;
         }
@@ -97,7 +100,17 @@
 #pragma mark - CatalogDataSourceDelegate methods
 - (void)catalogsDatasource:(CatalogsDatasource *)sender DidFailWithError:(NSError *)error
 {
+    [self.loadingView stopAnimating];
+    self.loadingView.hidden = YES;
     
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Catalogs", nil)
+                                                        message:[error localizedDescription]
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(int)count
@@ -108,5 +121,8 @@
     }
 }
 
+- (void)catalogsDatasource:(CatalogsDatasource *)sender selectedDetailsForListingItem:(CatalogItem *)catalogItem
+{
+}
 
 @end

@@ -22,14 +22,38 @@
 
 - (void)rewindList
 {
-    self.currentPage--;
-    [self getListPage];
+    if (self.currentPage > 0) {
+        self.currentPage--;
+        [self getListPage];
+    } else {
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
+                [self.delegate catalogsDatasource:self DidFailWithError:nil];
+            }
+        }
+    }
 }
 
 - (void)fastForwardList
 {
-    self.currentPage++;
-    [self getListPage];
+    BOOL valid = NO;
+    if (self.catalogResults) {
+        if (self.catalogResults.pagination) {
+            if (self.catalogResults.pagination.nextPage > self.currentPage) {
+                self.currentPage++;
+                [self getListPage];
+                valid = YES;
+            }
+        }
+    }
+    
+    if (!valid) {
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(catalogsDatasource:DidFailWithError:)]) {
+                [self.delegate catalogsDatasource:self DidFailWithError:nil];
+            }
+        }
+    }
 }
 
 - (void)getInitialListForKeywords:(NSString *)keywords
@@ -41,6 +65,8 @@
 
 - (void)getListPage
 {
+    self.catalogResults = nil;
+    [self.listingsTable reloadData];
     [CatalogServices getCatalogListingsByWeywords:self.currentKeywords inPage:self.currentPage withBlock:^(CatalogResult *catalogResults, NSError *error) {
         if (error) {
             // Report the error
@@ -75,18 +101,50 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ListingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableViewCell" forIndexPath:indexPath];
+//    ListingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableViewCell" forIndexPath:indexPath];
+//    
+//    if (cell == nil) {
+//        cell = [[ListingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListingTableViewCell"];
+//    }
+//    
+//    CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:indexPath.row];
+//    cell.summaryLabel.text = catalogItem.itemTitle;
+//    if (catalogItem.images.count) {
+//        CatalogListingImage *catalogImage = [catalogItem.images objectAtIndex:0];
+//        NSString *urlImg = catalogImage.url170x135;
+//        [cell.listingImage setImageWithURL:[NSURL URLWithString:urlImg]];
+//    } else {
+//        [CatalogServices getListingImagesForListingID:catalogItem.listingID withBlock:^(NSArray *imagesResult, NSError *error) {
+//            if (error) {
+//                // TODO: Do something with the error.
+//            } else {
+//                if (imagesResult.count) {
+//                    CatalogListingImage *img0 = [imagesResult objectAtIndex:0];
+//                    CatalogItem *itemFound = [self.catalogResults getCatalogItemWithListingID:img0.listingID];
+//                    if (itemFound) {
+//                        itemFound.images = [NSMutableArray arrayWithArray:imagesResult];
+//                    }
+//                }
+//            }
+//        }];
+//    }
+//    return cell;
     
-    if (cell == nil) {
-        cell = [[ListingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListingTableViewCell"];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListingTableViewCell" forIndexPath:indexPath];
+    
+    UILabel *titleCell = (UILabel *)[cell viewWithTag:100];
+    UIImageView *imageCell = (UIImageView *)[cell viewWithTag:110];
+    UIButton *buttonCell = (UIButton *)[cell viewWithTag:120];
+    
+    buttonCell.tag = indexPath.row;
+    [buttonCell addTarget:self action:@selector(tapUpDetails:) forControlEvents:UIControlEventTouchUpInside];
     
     CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:indexPath.row];
-    cell.summaryLabel.text = catalogItem.itemTitle;
+    titleCell.text = catalogItem.itemTitle;
     if (catalogItem.images.count) {
         CatalogListingImage *catalogImage = [catalogItem.images objectAtIndex:0];
         NSString *urlImg = catalogImage.url170x135;
-        [cell.listingImage setImageWithURL:[NSURL URLWithString:urlImg]];
+        [imageCell setImageWithURL:[NSURL URLWithString:urlImg]];
     } else {
         [CatalogServices getListingImagesForListingID:catalogItem.listingID withBlock:^(NSArray *imagesResult, NSError *error) {
             if (error) {
@@ -102,6 +160,7 @@
             }
         }];
     }
+    
     return cell;
 }
 
@@ -110,5 +169,23 @@
     ListingTableViewCell *cell = (ListingTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:NO];
 }
+
+
+#pragma mark - Private methods
+- (IBAction)tapUpDetails:(id)sender
+{
+    UIButton *detailButton = (UIButton *)sender;
+    int row = detailButton.tag;
+    
+    CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:row];
+    
+    if (catalogItem && self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(catalogsDatasource:selectedDetailsForListingItem:)]) {
+            [self.delegate catalogsDatasource:self selectedDetailsForListingItem:catalogItem];
+        }
+    }
+}
+
+
 
 @end
