@@ -75,4 +75,16 @@
     return self.listingResults.count;
 }
 
+- (int)findIndexOfItem:(CatalogItem *)item
+{
+    for (int i  = 0; i < self.listingResults.count; i++) {
+        CatalogItem *check = [self.listingResults objectAtIndex:i];
+        if (item == check) {
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
 @end

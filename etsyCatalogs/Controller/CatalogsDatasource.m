@@ -125,7 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // We are not allowing selection in the rows of the catalogs listing table
-    ListingTableViewCell *cell = (ListingTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:NO];
 }
 
@@ -160,9 +160,15 @@
                     // We just can work only if we have found the catalog item
                     itemFound.images = [NSMutableArray arrayWithArray:imagesResult];
                     
-                    int row = 0;
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-                    
+                    int row = [self.catalogResults findIndexOfItem:itemFound];
+                    if (row >= 0) {
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+                        
+                        // Now we get the cell of the given listingID and display the loaded image
+                        UITableViewCell *cell = [self.listingsTable cellForRowAtIndexPath:indexPath];
+                        UIImageView *imageCell = (UIImageView *)[cell viewWithTag:110];
+                        [imageCell setImageWithURL:[NSURL URLWithString:img0.url170x135]];
+                    }
                 }
             }
         }

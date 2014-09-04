@@ -34,4 +34,7 @@
 /// Return the count of registries currently in the catalogs result array
 - (int)count;
 
+/// Method to get the index of the given catalog listing item
+- (int)findIndexOfItem:(CatalogItem *)item;
+
 @end

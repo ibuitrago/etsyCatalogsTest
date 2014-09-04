@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307CF1D519B8DBDD00907231 /* CatalogsDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D019B8DBDD00907231 /* CatalogsDatasource.m */; };
+		307CF1D619B8DBDD00907231 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D219B8DBDD00907231 /* DetailViewController.m */; };
+		307CF1D719B8DBDD00907231 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D419B8DBDD00907231 /* MasterViewController.m */; };
+		307CF1DA19B8DC5400907231 /* ImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D919B8DC5400907231 /* ImagesScrollView.m */; };
+		307CF1DE19B8DFF400907231 /* UIImageView+CatalogListinImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */; };
 		30A4D63A19B4CE6300F88DE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63919B4CE6300F88DE3 /* main.m */; };
 		30A4D63D19B4CE6300F88DE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63C19B4CE6300F88DE3 /* AppDelegate.m */; };
 		30A4D64619B4CE6300F88DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A4D64419B4CE6300F88DE3 /* Main.storyboard */; };
@@ -15,10 +20,6 @@
 		30A4D67C19B500DD00F88DE3 /* CatalogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D66E19B500DD00F88DE3 /* CatalogItem.m */; };
 		30A4D67D19B500DD00F88DE3 /* CatalogListingImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67019B500DD00F88DE3 /* CatalogListingImage.m */; };
 		30A4D67E19B500DD00F88DE3 /* CatalogsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67219B500DD00F88DE3 /* CatalogsModel.m */; };
-		30A4D67F19B500DD00F88DE3 /* CatalogsDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67519B500DD00F88DE3 /* CatalogsDatasource.m */; };
-		30A4D68019B500DD00F88DE3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67719B500DD00F88DE3 /* DetailViewController.m */; };
-		30A4D68119B500DD00F88DE3 /* ListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67919B500DD00F88DE3 /* ListingTableViewCell.m */; };
-		30A4D68219B500DD00F88DE3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D67B19B500DD00F88DE3 /* MasterViewController.m */; };
 		30A4D68519B506F600F88DE3 /* CatalogServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D68419B506F600F88DE3 /* CatalogServices.m */; };
 		30A4D6AE19B50DE400F88DE3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D68A19B50DE400F88DE3 /* AFHTTPRequestOperation.m */; };
 		30A4D6AF19B50DE400F88DE3 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D68C19B50DE400F88DE3 /* AFHTTPRequestOperationManager.m */; };
@@ -53,6 +54,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		307CF1CF19B8DBDD00907231 /* CatalogsDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogsDatasource.h; sourceTree = "<group>"; };
+		307CF1D019B8DBDD00907231 /* CatalogsDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogsDatasource.m; sourceTree = "<group>"; };
+		307CF1D119B8DBDD00907231 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		307CF1D219B8DBDD00907231 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		307CF1D319B8DBDD00907231 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		307CF1D419B8DBDD00907231 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		307CF1D819B8DC5400907231 /* ImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesScrollView.h; sourceTree = "<group>"; };
+		307CF1D919B8DC5400907231 /* ImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesScrollView.m; sourceTree = "<group>"; };
+		307CF1DC19B8DFF400907231 /* UIImageView+CatalogListinImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CatalogListinImage.h"; sourceTree = "<group>"; };
+		307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CatalogListinImage.m"; sourceTree = "<group>"; };
 		30A4D63419B4CE6300F88DE3 /* etsyCatalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etsyCatalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A4D63819B4CE6300F88DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A4D63919B4CE6300F88DE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,14 +80,6 @@
 		30A4D67019B500DD00F88DE3 /* CatalogListingImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogListingImage.m; sourceTree = "<group>"; };
 		30A4D67119B500DD00F88DE3 /* CatalogsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogsModel.h; sourceTree = "<group>"; };
 		30A4D67219B500DD00F88DE3 /* CatalogsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogsModel.m; sourceTree = "<group>"; };
-		30A4D67419B500DD00F88DE3 /* CatalogsDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogsDatasource.h; sourceTree = "<group>"; };
-		30A4D67519B500DD00F88DE3 /* CatalogsDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogsDatasource.m; sourceTree = "<group>"; };
-		30A4D67619B500DD00F88DE3 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		30A4D67719B500DD00F88DE3 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		30A4D67819B500DD00F88DE3 /* ListingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingTableViewCell.h; sourceTree = "<group>"; };
-		30A4D67919B500DD00F88DE3 /* ListingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingTableViewCell.m; sourceTree = "<group>"; };
-		30A4D67A19B500DD00F88DE3 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		30A4D67B19B500DD00F88DE3 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		30A4D68319B506F600F88DE3 /* CatalogServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogServices.h; sourceTree = "<group>"; };
 		30A4D68419B506F600F88DE3 /* CatalogServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogServices.m; sourceTree = "<group>"; };
 		30A4D68919B50DE400F88DE3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -141,6 +144,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		307CF1CE19B8DABA00907231 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				307CF1CF19B8DBDD00907231 /* CatalogsDatasource.h */,
+				307CF1D019B8DBDD00907231 /* CatalogsDatasource.m */,
+				307CF1D119B8DBDD00907231 /* DetailViewController.h */,
+				307CF1D219B8DBDD00907231 /* DetailViewController.m */,
+				307CF1D319B8DBDD00907231 /* MasterViewController.h */,
+				307CF1D419B8DBDD00907231 /* MasterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		307CF1DB19B8DF1B00907231 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				307CF1DC19B8DFF400907231 /* UIImageView+CatalogListinImage.h */,
+				307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		30A4D62B19B4CE6300F88DE3 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +187,8 @@
 		30A4D63619B4CE6300F88DE3 /* etsyCatalogs */ = {
 			isa = PBXGroup;
 			children = (
+				307CF1DB19B8DF1B00907231 /* Category */,
+				307CF1CE19B8DABA00907231 /* Controller */,
 				30A4D68619B50DE400F88DE3 /* External */,
 				30A4D66C19B500DD00F88DE3 /* Model */,
 				30A4D67319B500DD00F88DE3 /* View */,
@@ -224,14 +251,8 @@
 		30A4D67319B500DD00F88DE3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				30A4D67419B500DD00F88DE3 /* CatalogsDatasource.h */,
-				30A4D67519B500DD00F88DE3 /* CatalogsDatasource.m */,
-				30A4D67619B500DD00F88DE3 /* DetailViewController.h */,
-				30A4D67719B500DD00F88DE3 /* DetailViewController.m */,
-				30A4D67819B500DD00F88DE3 /* ListingTableViewCell.h */,
-				30A4D67919B500DD00F88DE3 /* ListingTableViewCell.m */,
-				30A4D67A19B500DD00F88DE3 /* MasterViewController.h */,
-				30A4D67B19B500DD00F88DE3 /* MasterViewController.m */,
+				307CF1D819B8DC5400907231 /* ImagesScrollView.h */,
+				307CF1D919B8DC5400907231 /* ImagesScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,26 +424,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A4D6B319B50DE400F88DE3 /* AFURLConnectionOperation.m in Sources */,
-				30A4D67F19B500DD00F88DE3 /* CatalogsDatasource.m in Sources */,
 				30A4D6B219B50DE400F88DE3 /* AFSecurityPolicy.m in Sources */,
 				30A4D67D19B500DD00F88DE3 /* CatalogListingImage.m in Sources */,
+				307CF1DE19B8DFF400907231 /* UIImageView+CatalogListinImage.m in Sources */,
 				30A4D6C119B5111C00F88DE3 /* ModelUtilities.m in Sources */,
 				30A4D6BC19B50DE400F88DE3 /* UIProgressView+AFNetworking.m in Sources */,
 				30A4D6B919B50DE400F88DE3 /* UIAlertView+AFNetworking.m in Sources */,
 				30A4D6B719B50DE400F88DE3 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				307CF1DA19B8DC5400907231 /* ImagesScrollView.m in Sources */,
 				30A4D6AF19B50DE400F88DE3 /* AFHTTPRequestOperationManager.m in Sources */,
 				30A4D6BA19B50DE400F88DE3 /* UIButton+AFNetworking.m in Sources */,
+				307CF1D519B8DBDD00907231 /* CatalogsDatasource.m in Sources */,
 				30A4D6B819B50DE400F88DE3 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				30A4D67C19B500DD00F88DE3 /* CatalogItem.m in Sources */,
 				30A4D6BE19B50DE400F88DE3 /* UIWebView+AFNetworking.m in Sources */,
 				30A4D67E19B500DD00F88DE3 /* CatalogsModel.m in Sources */,
 				30A4D63D19B4CE6300F88DE3 /* AppDelegate.m in Sources */,
 				30A4D63A19B4CE6300F88DE3 /* main.m in Sources */,
-				30A4D68119B500DD00F88DE3 /* ListingTableViewCell.m in Sources */,
 				30A4D6B619B50DE400F88DE3 /* AFURLSessionManager.m in Sources */,
 				30A4D6B519B50DE400F88DE3 /* AFURLResponseSerialization.m in Sources */,
-				30A4D68219B500DD00F88DE3 /* MasterViewController.m in Sources */,
-				30A4D68019B500DD00F88DE3 /* DetailViewController.m in Sources */,
+				307CF1D719B8DBDD00907231 /* MasterViewController.m in Sources */,
 				30A4D6B419B50DE400F88DE3 /* AFURLRequestSerialization.m in Sources */,
 				30A4D6BD19B50DE400F88DE3 /* UIRefreshControl+AFNetworking.m in Sources */,
 				30A4D6C419B6100A00F88DE3 /* ResultPagination.m in Sources */,
@@ -432,6 +453,7 @@
 				30A4D6AE19B50DE400F88DE3 /* AFHTTPRequestOperation.m in Sources */,
 				30A4D6C719B6131700F88DE3 /* CatalogResult.m in Sources */,
 				30A4D6B019B50DE400F88DE3 /* AFHTTPSessionManager.m in Sources */,
+				307CF1D619B8DBDD00907231 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +640,7 @@
 				30A4D65919B4CE6300F88DE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30A4D65A19B4CE6300F88DE3 /* Build configuration list for PBXNativeTarget "etsyCatalogsTests" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +649,7 @@
 				30A4D65C19B4CE6300F88DE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

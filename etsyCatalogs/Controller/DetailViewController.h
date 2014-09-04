@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-#import "UIImageView+AFNetworking.h"
-
 #import "CatalogItem.h"
 #import "CatalogListingImage.h"
+
+#import "ImagesScrollView.h"
 
 
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIScrollView *contentScroller;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UIScrollView *imageScroller;
+@property (nonatomic, strong) IBOutlet ImagesScrollView *imageScroller;
 @property (nonatomic, strong) IBOutlet UILabel *priceTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionView;

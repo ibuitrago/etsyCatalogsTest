@@ -11,8 +11,6 @@
 
 #import "UIImageView+AFNetworking.h"
 
-#import "ListingTableViewCell.h"
-
 #import "CatalogItem.h"
 #import "CatalogListingImage.h"
 #import "CatalogResult.h"
