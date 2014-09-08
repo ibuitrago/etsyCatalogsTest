@@ -12,6 +12,7 @@
 		307CF1D719B8DBDD00907231 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D419B8DBDD00907231 /* MasterViewController.m */; };
 		307CF1DA19B8DC5400907231 /* ImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D919B8DC5400907231 /* ImagesScrollView.m */; };
 		307CF1DE19B8DFF400907231 /* UIImageView+CatalogListinImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */; };
+		307CF1E419BE5B3500907231 /* CatalogItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1E319BE5B3500907231 /* CatalogItemTest.m */; };
 		30A4D63A19B4CE6300F88DE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63919B4CE6300F88DE3 /* main.m */; };
 		30A4D63D19B4CE6300F88DE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63C19B4CE6300F88DE3 /* AppDelegate.m */; };
 		30A4D64619B4CE6300F88DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A4D64419B4CE6300F88DE3 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		307CF1D919B8DC5400907231 /* ImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesScrollView.m; sourceTree = "<group>"; };
 		307CF1DC19B8DFF400907231 /* UIImageView+CatalogListinImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CatalogListinImage.h"; sourceTree = "<group>"; };
 		307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CatalogListinImage.m"; sourceTree = "<group>"; };
+		307CF1E319BE5B3500907231 /* CatalogItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogItemTest.m; sourceTree = "<group>"; };
 		30A4D63419B4CE6300F88DE3 /* etsyCatalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etsyCatalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A4D63819B4CE6300F88DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A4D63919B4CE6300F88DE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -166,6 +168,35 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		307CF1DF19BE5B1B00907231 /* CategoryTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CategoryTest;
+			sourceTree = "<group>";
+		};
+		307CF1E019BE5B1B00907231 /* ControllerTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ControllerTest;
+			sourceTree = "<group>";
+		};
+		307CF1E119BE5B1B00907231 /* ModelTest */ = {
+			isa = PBXGroup;
+			children = (
+				307CF1E319BE5B3500907231 /* CatalogItemTest.m */,
+			);
+			path = ModelTest;
+			sourceTree = "<group>";
+		};
+		307CF1E219BE5B1B00907231 /* ViewTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewTest;
+			sourceTree = "<group>";
+		};
 		30A4D62B19B4CE6300F88DE3 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +244,10 @@
 		30A4D65019B4CE6300F88DE3 /* etsyCatalogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				307CF1DF19BE5B1B00907231 /* CategoryTest */,
+				307CF1E019BE5B1B00907231 /* ControllerTest */,
+				307CF1E119BE5B1B00907231 /* ModelTest */,
+				307CF1E219BE5B1B00907231 /* ViewTest */,
 				30A4D65319B4CE6300F88DE3 /* etsyCatalogsTests.m */,
 				30A4D65119B4CE6300F88DE3 /* Supporting Files */,
 			);
@@ -461,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307CF1E419BE5B3500907231 /* CatalogItemTest.m in Sources */,
 				30A4D65419B4CE6300F88DE3 /* etsyCatalogsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
