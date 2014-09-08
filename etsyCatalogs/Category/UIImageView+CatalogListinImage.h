@@ -17,10 +17,6 @@
 
 @interface UIImageView (CatalogListinImage)
 
-
-
 + (UIImageView *)initWithCatalogListingImage:(CatalogListingImage *)image atOriginPoint:(CGPoint)point;
-
-
 
 @end

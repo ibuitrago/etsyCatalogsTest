@@ -12,6 +12,9 @@
 
 extern NSString * const kApiKey;
 
+extern const int kErrorCodeNoResultsFound;
+extern const int kErrorCodeBadResponse;
+
 extern const int kPageItemsize;
 
 extern NSString * const kServicesUrl;

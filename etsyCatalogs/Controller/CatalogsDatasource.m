@@ -22,34 +22,44 @@
 
 - (void)rewindList
 {
-    if (self.currentPage > 0) {
-        // If the previous page exists then we proceed
+    if ([self isValidGoBackward]) {
         self.currentPage--;
         [self getListPage];
-    } else {
-        // If we cannot go to previous page, we need to report to the delegate
-        [self reportErrorToDelegate:nil];
     }
 }
 
+- (BOOL)isValidGoBackward
+{
+    if (self.currentPage > 0) {
+        return YES;
+    } else {
+        [self reportErrorToDelegate:nil];
+        return NO;
+    }
+}
+
+
 - (void)fastForwardList
 {
+    if ([self isValidGoForward]) {
+        self.currentPage++;
+        [self getListPage];
+    }
+}
+
+- (BOOL)isValidGoForward
+{
     // Here we need to control if we have results and also if there's a next page
-    BOOL valid = NO;
     if (self.catalogResults && self.catalogResults.pagination) {
         if (self.catalogResults.pagination.nextPage > self.currentPage) {
-            // If we have next page, we proceed
-            self.currentPage++;
-            [self getListPage];
-            valid = YES;
+            return YES;
         }
     }
     
-    // In case the next page is not valid or doesn't exists, we need to report to the delegate
-    if (!valid) {
-        [self reportErrorToDelegate:nil];
-    }
+    [self reportErrorToDelegate:nil];
+    return NO;
 }
+
 
 - (void)getInitialListForKeywords:(NSString *)keywords
 {

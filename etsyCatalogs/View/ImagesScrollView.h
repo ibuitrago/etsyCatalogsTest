@@ -15,9 +15,6 @@
 
 @interface ImagesScrollView : UIScrollView
 
-
-
 - (void)buildImagesFromArray:(NSArray *)imagesArray adjustHeight:(BOOL)heightAdjust;
-
 
 @end

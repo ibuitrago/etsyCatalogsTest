@@ -26,8 +26,6 @@
 @property (nonatomic, strong) NSMutableArray *images;
 
 
-/// This method will create a new CatalogItem using the data given in the dictionary,
-/// and will return it.
 + (CatalogItem *)createCatalogItemFromDictionary:(NSDictionary *)dictionary;
 
 

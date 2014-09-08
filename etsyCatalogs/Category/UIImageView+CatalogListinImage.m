@@ -17,7 +17,6 @@ static double kPreferredImageWidth = 285.0;
 
 + (UIImageView *)initWithCatalogListingImage:(CatalogListingImage *)image atOriginPoint:(CGPoint)point
 {
-    // Then, calculate the image size based on the constrained width
     double scale = 1.0;
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] == YES) {
         scale = [[UIScreen mainScreen] scale];
@@ -28,7 +27,6 @@ static double kPreferredImageWidth = 285.0;
     double imgW = kPreferredImageWidth;
     double imgH = (h * imgW) / w;
     
-    // At the end we create our image
     UIImageView *imageView = [[UIImageView alloc] init];
     
     if (imageView) {
