@@ -113,7 +113,7 @@
     } 
 }
 
-- (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(int)count
+- (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(NSInteger)count
 {
     if (count) {
         [self.loadingView stopAnimating];

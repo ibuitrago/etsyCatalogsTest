@@ -40,7 +40,7 @@
 @protocol CatalogsDatasourceDelegate <NSObject>
 
 @optional
-- (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(int)count;
+- (void)catalogsDatasource:(CatalogsDatasource *)sender DidLoadListingCatalogs:(NSInteger)count;
 - (void)catalogsDatasource:(CatalogsDatasource *)sender DidFailWithError:(NSError *)error;
 - (void)catalogsDatasource:(CatalogsDatasource *)sender selectedDetailsForListingItem:(CatalogItem *)catalogItem;
 

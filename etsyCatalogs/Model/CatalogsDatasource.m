@@ -144,7 +144,7 @@
 - (IBAction)tapUpDetails:(id)sender
 {
     UIButton *detailButton = (UIButton *)sender;
-    int row = detailButton.tag;
+    NSInteger row = detailButton.tag;
     
     CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:row];
     
