@@ -21,7 +21,7 @@
         // So, let's get the image info
         CatalogListingImage *image = [imagesArray objectAtIndex:i];
         
-        UIImageView *imageView = [UIImageView initWithCatalogListingImage:image atOriginPoint:CGPointMake(x, y)];
+        UIImageView *imageView = [[CatalogListingImageView alloc] initWithCatalogListingImage:image atOriginPoint:CGPointMake(x, y)];
         
         // Then, if exists, add it to the scroller and make the calcs to the next one
         if (imageView) {

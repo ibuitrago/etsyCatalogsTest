@@ -10,7 +10,7 @@
 
 #import "CatalogListingImage.h"
 
-#import "UIImageView+CatalogListinImage.h"
+#import "CatalogListingImageView.h"
 
 
 @interface ImagesScrollView : UIScrollView
