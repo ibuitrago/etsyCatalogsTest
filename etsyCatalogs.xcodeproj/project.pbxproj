@@ -10,9 +10,9 @@
 		307CF1D619B8DBDD00907231 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D219B8DBDD00907231 /* DetailViewController.m */; };
 		307CF1D719B8DBDD00907231 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D419B8DBDD00907231 /* MasterViewController.m */; };
 		307CF1DA19B8DC5400907231 /* ImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1D919B8DC5400907231 /* ImagesScrollView.m */; };
-		307CF1DE19B8DFF400907231 /* UIImageView+CatalogListinImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */; };
 		307CF1E419BE5B3500907231 /* CatalogItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1E319BE5B3500907231 /* CatalogItemTest.m */; };
 		307CF1E719BF4AB300907231 /* CatalogsDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1E619BF4AB300907231 /* CatalogsDatasource.m */; };
+		307CF1ED19BF666500907231 /* CatalogListingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307CF1EC19BF666500907231 /* CatalogListingImageView.m */; };
 		30A4D63A19B4CE6300F88DE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63919B4CE6300F88DE3 /* main.m */; };
 		30A4D63D19B4CE6300F88DE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D63C19B4CE6300F88DE3 /* AppDelegate.m */; };
 		30A4D64619B4CE6300F88DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A4D64419B4CE6300F88DE3 /* Main.storyboard */; };
@@ -61,11 +61,11 @@
 		307CF1D419B8DBDD00907231 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		307CF1D819B8DC5400907231 /* ImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesScrollView.h; sourceTree = "<group>"; };
 		307CF1D919B8DC5400907231 /* ImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesScrollView.m; sourceTree = "<group>"; };
-		307CF1DC19B8DFF400907231 /* UIImageView+CatalogListinImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CatalogListinImage.h"; sourceTree = "<group>"; };
-		307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CatalogListinImage.m"; sourceTree = "<group>"; };
 		307CF1E319BE5B3500907231 /* CatalogItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogItemTest.m; sourceTree = "<group>"; };
 		307CF1E519BF4AB300907231 /* CatalogsDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogsDatasource.h; sourceTree = "<group>"; };
 		307CF1E619BF4AB300907231 /* CatalogsDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogsDatasource.m; sourceTree = "<group>"; };
+		307CF1EB19BF666500907231 /* CatalogListingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogListingImageView.h; sourceTree = "<group>"; };
+		307CF1EC19BF666500907231 /* CatalogListingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogListingImageView.m; sourceTree = "<group>"; };
 		30A4D63419B4CE6300F88DE3 /* etsyCatalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etsyCatalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A4D63819B4CE6300F88DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A4D63919B4CE6300F88DE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,8 +160,6 @@
 		307CF1DB19B8DF1B00907231 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				307CF1DC19B8DFF400907231 /* UIImageView+CatalogListinImage.h */,
-				307CF1DD19B8DFF400907231 /* UIImageView+CatalogListinImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -288,6 +286,8 @@
 			children = (
 				307CF1D819B8DC5400907231 /* ImagesScrollView.h */,
 				307CF1D919B8DC5400907231 /* ImagesScrollView.m */,
+				307CF1EB19BF666500907231 /* CatalogListingImageView.h */,
+				307CF1EC19BF666500907231 /* CatalogListingImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,10 +461,10 @@
 				30A4D6B319B50DE400F88DE3 /* AFURLConnectionOperation.m in Sources */,
 				30A4D6B219B50DE400F88DE3 /* AFSecurityPolicy.m in Sources */,
 				30A4D67D19B500DD00F88DE3 /* CatalogListingImage.m in Sources */,
-				307CF1DE19B8DFF400907231 /* UIImageView+CatalogListinImage.m in Sources */,
 				30A4D6C119B5111C00F88DE3 /* ModelUtilities.m in Sources */,
 				30A4D6BC19B50DE400F88DE3 /* UIProgressView+AFNetworking.m in Sources */,
 				307CF1E719BF4AB300907231 /* CatalogsDatasource.m in Sources */,
+				307CF1ED19BF666500907231 /* CatalogListingImageView.m in Sources */,
 				30A4D6B919B50DE400F88DE3 /* UIAlertView+AFNetworking.m in Sources */,
 				30A4D6B719B50DE400F88DE3 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				307CF1DA19B8DC5400907231 /* ImagesScrollView.m in Sources */,
