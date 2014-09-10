@@ -152,13 +152,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTj-nC-qhg">
-                                            <rect key="frame" x="176" y="4" width="409" height="64"/>
+                                            <rect key="frame" x="106" y="4" width="486" height="64"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="0.1254410282" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="110" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQl-qg-LUm">
-                                            <rect key="frame" x="8" y="4" width="160" height="86"/>
+                                        <imageView userInteractionEnabled="NO" tag="110" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kQl-qg-LUm">
+                                            <rect key="frame" x="8" y="4" width="90" height="86"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="acI-eo-4Md"/>
+                                                <constraint firstAttribute="height" constant="86" id="uht-Gq-vp2"/>
+                                            </constraints>
                                         </imageView>
                                         <button opaque="NO" tag="120" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b9-EL-KQa">
                                             <rect key="frame" x="506" y="62" width="86" height="30"/>
@@ -176,12 +181,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="kQl-qg-LUm" secondAttribute="bottom" constant="-4.5" id="B3X-uJ-zyN"/>
                                         <constraint firstItem="kQl-qg-LUm" firstAttribute="leading" secondItem="1JH-ex-ceP" secondAttribute="leadingMargin" id="Kbl-Sp-6AA"/>
                                         <constraint firstItem="kQl-qg-LUm" firstAttribute="leading" secondItem="1JH-ex-ceP" secondAttribute="leadingMargin" id="Ngz-i9-2e5"/>
-                                        <constraint firstItem="cTj-nC-qhg" firstAttribute="leading" secondItem="kQl-qg-LUm" secondAttribute="trailing" constant="8" id="TXF-rg-SOd"/>
                                         <constraint firstItem="6b9-EL-KQa" firstAttribute="top" secondItem="1JH-ex-ceP" secondAttribute="topMargin" constant="52" id="YjK-Ff-24f"/>
                                         <constraint firstItem="cTj-nC-qhg" firstAttribute="top" secondItem="1JH-ex-ceP" secondAttribute="topMargin" id="Zem-vE-hDv"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="cTj-nC-qhg" secondAttribute="bottom" constant="22" id="b7K-tY-5if"/>
                                         <constraint firstItem="6b9-EL-KQa" firstAttribute="trailing" secondItem="1JH-ex-ceP" secondAttribute="trailingMargin" id="dt2-NI-q8i"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="cTj-nC-qhg" secondAttribute="trailing" constant="7" id="nBM-hd-6Ug"/>
+                                        <constraint firstItem="cTj-nC-qhg" firstAttribute="trailing" secondItem="1JH-ex-ceP" secondAttribute="trailingMargin" id="gLe-5j-9t8"/>
                                         <constraint firstItem="kQl-qg-LUm" firstAttribute="leading" secondItem="1JH-ex-ceP" secondAttribute="leadingMargin" id="oRP-Oj-ypc"/>
                                         <constraint firstItem="cTj-nC-qhg" firstAttribute="leading" secondItem="kQl-qg-LUm" secondAttribute="trailing" constant="8" id="wji-QC-Txc"/>
                                     </constraints>
