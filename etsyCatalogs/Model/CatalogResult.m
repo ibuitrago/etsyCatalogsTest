@@ -56,7 +56,7 @@
     return nil;
 }
 
-- (CatalogItem *)getCatalogItemByIndex:(int)index
+- (CatalogItem *)getCatalogItemByIndex:(NSInteger)index
 {
     if (index < self.listingResults.count) {
         return [self.listingResults objectAtIndex:index];
@@ -70,7 +70,7 @@
     return [self.listingResults copy];
 }
 
-- (int)count
+- (NSInteger)count
 {
     return self.listingResults.count;
 }
