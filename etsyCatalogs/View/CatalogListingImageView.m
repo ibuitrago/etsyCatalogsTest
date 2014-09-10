@@ -35,6 +35,8 @@ static double kPreferredImageWidth = 285.0;
                                      imgW,
                                      imgH);
         
+        self.contentMode = UIViewContentModeScaleAspectFit;
+        
         // Create the image async
         [self setImageWithURL:[NSURL URLWithString:image.urlFullSize]];
     }

@@ -40,6 +40,8 @@
     
     // If the scroll is to be adjusted in height, We need to resize the image scroller to display all the images height with no vertical scrolling
     if (heightAdjust) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        
         self.frame = CGRectMake(self.frame.origin.x,
                                               self.frame.origin.y,
                                               self.frame.size.width,
