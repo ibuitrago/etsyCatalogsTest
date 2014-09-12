@@ -17,6 +17,7 @@
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIScrollView *contentScroller;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet ImagesScrollView *imageScroller;
 @property (nonatomic, strong) IBOutlet UILabel *priceTitleLabel;
