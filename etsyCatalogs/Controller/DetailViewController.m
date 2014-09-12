@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     [self configureDetailView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +42,14 @@
     // Now we create the images and put them into the images scroller
     // according to the images found on the images array in the item
     [self.imageScroller buildImagesFromArray:self.detailItem.images adjustHeight:YES];
+    
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.contentScroller.contentSize = CGSizeMake(self.contentView.frame.size.width, self.contentView.frame.size.height);
+}
+
 
 
 
