@@ -32,6 +32,20 @@
 }
 
 
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self performSelector:@selector(logViewsSizes:) withObject:@"---ViewDidAppear--->" afterDelay:1];
+}
+
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.contentScroller.contentSize = self.contentView.frame.size;
+}
+
+
 - (void)configureDetailView
 {
     self.titleLabel.text = self.detailItem.itemTitle;
@@ -45,9 +59,27 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
+
+
+- (void)logViewsSizes:(NSString *)message
 {
-    self.contentScroller.contentSize = CGSizeMake(self.contentView.frame.size.width, self.contentView.frame.size.height);
+    NSLog(@"%@", message);
+    
+    NSLog(@"Scroller frame: x: %f | y: %f | w: %f | h: %f",
+          self.contentScroller.frame.origin.x,
+          self.contentScroller.frame.origin.y,
+          self.contentScroller.frame.size.width,
+          self.contentScroller.frame.size.height);
+    
+    NSLog(@"Scroller content size: w: %f | h: %f",
+          self.contentScroller.contentSize.width,
+          self.contentScroller.contentSize.height);
+    
+    NSLog(@"Content frame: x: %f | y: %f | w: %f | h: %f",
+          self.contentView.frame.origin.x,
+          self.contentView.frame.origin.y,
+          self.contentView.frame.size.width,
+          self.contentView.frame.size.height);
 }
 
 
