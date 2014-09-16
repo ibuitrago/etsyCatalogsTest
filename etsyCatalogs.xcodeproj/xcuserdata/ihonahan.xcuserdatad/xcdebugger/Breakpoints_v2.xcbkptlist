@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "etsyCatalogs/Controller/DetailViewController.m"
-            timestampString = "432233775.681823"
+            timestampString = "432598904.02242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-configureDetailView"
             landmarkType = "5">
          </BreakpointContent>
