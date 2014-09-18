@@ -25,6 +25,7 @@
 		30A4D6C119B5111C00F88DE3 /* ModelUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D6C019B5111C00F88DE3 /* ModelUtilities.m */; };
 		30A4D6C419B6100A00F88DE3 /* ResultPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D6C319B6100A00F88DE3 /* ResultPagination.m */; };
 		30A4D6C719B6131700F88DE3 /* CatalogResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A4D6C619B6131700F88DE3 /* CatalogResult.m */; };
+		30D6861419CA2F03009B5A4D /* transparent-square-th.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6861319CA2F03009B5A4D /* transparent-square-th.png */; };
 		E1AE9243065C485297AABF5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CF587A642A474B8E47A981 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		30A4D6C319B6100A00F88DE3 /* ResultPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultPagination.m; sourceTree = "<group>"; };
 		30A4D6C519B6131700F88DE3 /* CatalogResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogResult.h; sourceTree = "<group>"; };
 		30A4D6C619B6131700F88DE3 /* CatalogResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogResult.m; sourceTree = "<group>"; };
+		30D6861319CA2F03009B5A4D /* transparent-square-th.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "transparent-square-th.png"; sourceTree = "<group>"; };
 		54A46950750146F0B9BE6A39 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		66CF587A642A474B8E47A981 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 		30A4D63619B4CE6300F88DE3 /* etsyCatalogs */ = {
 			isa = PBXGroup;
 			children = (
+				30D6861219CA2F03009B5A4D /* Image */,
 				307CF1DB19B8DF1B00907231 /* Category */,
 				307CF1CE19B8DABA00907231 /* Controller */,
 				30A4D66C19B500DD00F88DE3 /* Model */,
@@ -242,6 +245,14 @@
 				307CF1EC19BF666500907231 /* CatalogListingImageView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		30D6861219CA2F03009B5A4D /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				30D6861319CA2F03009B5A4D /* transparent-square-th.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		33028CC4688D49A98BF1AD8E /* Frameworks */ = {
@@ -334,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D6861419CA2F03009B5A4D /* transparent-square-th.png in Resources */,
 				30A4D64619B4CE6300F88DE3 /* Main.storyboard in Resources */,
 				30A4D64819B4CE6300F88DE3 /* Images.xcassets in Resources */,
 			);

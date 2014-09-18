@@ -13,12 +13,23 @@
 
 @property(nonatomic, strong) NSString *currentKeywords;
 @property(nonatomic, assign) int currentPage;
+@property(nonatomic, strong) UIImage *placeholder;
 
 @end
 
 
 @implementation CatalogsDatasource
 
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.placeholder = [UIImage imageNamed:@"transparent-square-th.png"];
+    }
+    
+    return self;
+}
 
 - (void)rewindList
 {
@@ -117,7 +128,8 @@
     UIButton *buttonCell = (UIButton *)[cell viewWithTag:120];
     
     buttonCell.tag = indexPath.row;
-    [buttonCell addTarget:self action:@selector(tapUpDetails:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonCell addTarget:self action:@selector(handleDetail:) forControlEvents:UIControlEventTouchUpInside];
+    imageCell.image = self.placeholder;
     
     CatalogItem *catalogItem = [self.catalogResults getCatalogItemByIndex:indexPath.row];
     titleCell.text = catalogItem.itemTitle;
@@ -125,6 +137,10 @@
         CatalogListingImage *catalogImage = [catalogItem.images objectAtIndex:0];
         NSString *urlImg = catalogImage.url170x135;
         [imageCell setImageWithURL:[NSURL URLWithString:urlImg]];
+        
+        NSString *nam = [catalogItem.itemTitle substringToIndex:25];
+        NSLog(@"Row|ListId|Name || %d|%lld|%@", indexPath.row, catalogItem.listingID, nam);
+        
     } else {
         [self initialSetOfImagesForListingID:catalogItem.listingID];
     }
@@ -141,7 +157,7 @@
 
 
 #pragma mark - Private methods
-- (IBAction)tapUpDetails:(id)sender
+- (void)handleDetail:(id)sender
 {
     UIButton *detailButton = (UIButton *)sender;
     NSInteger row = detailButton.tag;
@@ -177,7 +193,7 @@
                         // Now we get the cell of the given listingID and display the loaded image
                         UITableViewCell *cell = [self.listingsTable cellForRowAtIndexPath:indexPath];
                         UIImageView *imageCell = (UIImageView *)[cell viewWithTag:110];
-                        [imageCell setImageWithURL:[NSURL URLWithString:img0.url170x135]];
+                        [imageCell setImageWithURL:[NSURL URLWithString:img0.url170x135] placeholderImage:self.placeholder];
                     }
                 }
             }
