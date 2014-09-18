@@ -24,7 +24,6 @@
     item.hue = [[dictionary objectForKey:@"hue"] intValue];
     item.saturation = [[dictionary objectForKey:@"saturation"] intValue];
     item.brightness = [[dictionary objectForKey:@"brightness"] intValue];
-//    item.isBlackAndWhite = [[dictionary objectForKey:@"is_black_and_white"] boolValue];
     item.fullWidth = [[dictionary objectForKey:@"full_width"] doubleValue];
     item.fullHeight = [[dictionary objectForKey:@"full_height"] doubleValue];
     item.url75x75 = [dictionary objectForKey:@"url_75x75"];

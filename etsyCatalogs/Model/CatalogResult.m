@@ -33,13 +33,9 @@
 
 - (void)insertPaginationInfo:(NSDictionary *)dictionary withCount:(int)count
 {
-    self.pagination = [[ResultPagination alloc] init];
-    self.pagination.pageLimit = [[dictionary objectForKey:@"effective_limit"] intValue];
-    self.pagination.currentOffset = [[dictionary objectForKey:@"effective_offset"] intValue];
-    self.pagination.nextOffset = [[dictionary objectForKey:@"next_offset"] intValue];
-    self.pagination.currentPage = [[dictionary objectForKey:@"effective_page"] intValue];
-    self.pagination.nextPage = [[dictionary objectForKey:@"next_page"] intValue];
-    self.pagination.totalCount = count;
+    NSMutableDictionary *paginationDict = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    [paginationDict setValue:[NSNumber numberWithInt:count] forKey:@"count"];
+    self.pagination = [ResultPagination createResultPaginationFromDictionary:paginationDict];
 }
 
 - (void)insertCatalogItem:(NSDictionary *)dictionary
@@ -60,7 +56,7 @@
     return nil;
 }
 
-- (CatalogItem *)getCatalogItemByIndex:(int)index
+- (CatalogItem *)getCatalogItemByIndex:(NSInteger)index
 {
     if (index < self.listingResults.count) {
         return [self.listingResults objectAtIndex:index];
@@ -74,9 +70,21 @@
     return [self.listingResults copy];
 }
 
-- (int)count
+- (NSInteger)count
 {
     return self.listingResults.count;
+}
+
+- (int)findIndexOfItem:(CatalogItem *)item
+{
+    for (int i  = 0; i < self.listingResults.count; i++) {
+        CatalogItem *check = [self.listingResults objectAtIndex:i];
+        if (item == check) {
+            return i;
+        }
+    }
+    
+    return -1;
 }
 
 @end

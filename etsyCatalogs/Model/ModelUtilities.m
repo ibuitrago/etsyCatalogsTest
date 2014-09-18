@@ -12,6 +12,9 @@
 
 NSString * const kApiKey = @"wzqjy1uwfvsb69sgnr2j1f3y";
 
+const int kErrorCodeNoResultsFound = 4020;
+const int kErrorCodeBadResponse = 4001;
+
 const int kPageItemsize = 20;
 
 NSString * const kServicesUrl = @"https://openapi.etsy.com/v2/";

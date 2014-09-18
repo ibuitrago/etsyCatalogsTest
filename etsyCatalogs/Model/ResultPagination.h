@@ -18,4 +18,7 @@
 @property(nonatomic, assign) int totalCount;
 
 
++ (ResultPagination *)createResultPaginationFromDictionary:(NSDictionary *)dictionary;
+
+
 @end

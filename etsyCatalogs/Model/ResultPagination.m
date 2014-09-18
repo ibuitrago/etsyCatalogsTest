@@ -10,4 +10,18 @@
 
 @implementation ResultPagination
 
+
++ (ResultPagination *)createResultPaginationFromDictionary:(NSDictionary *)dictionary
+{
+    ResultPagination *pagination = [[ResultPagination alloc] init];
+    
+    pagination.pageLimit = [[dictionary objectForKey:@"effective_limit"] intValue];
+    pagination.currentOffset = [[dictionary objectForKey:@"effective_offset"] intValue];
+    pagination.nextOffset = [[dictionary objectForKey:@"next_offset"] intValue];
+    pagination.currentPage = [[dictionary objectForKey:@"effective_page"] intValue];
+    pagination.nextPage = [[dictionary objectForKey:@"next_page"] intValue];
+    pagination.totalCount = [[dictionary objectForKey:@"count"] intValue];
+    
+    return pagination;
+}
 @end

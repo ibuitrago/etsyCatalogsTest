@@ -26,11 +26,15 @@
 - (CatalogItem *)getCatalogItemWithListingID:(long long)listingId;
 
 /// Method to get a catalog in the given position into the catalogs result array
-- (CatalogItem *)getCatalogItemByIndex:(int)index;
+- (CatalogItem *)getCatalogItemByIndex:(NSInteger)index;
 
 /// Method to get a copy of the catalogs result array
 - (NSMutableArray *)getAllCatalogItemsCopy;
 
 /// Return the count of registries currently in the catalogs result array
-- (int)count;
+- (NSInteger)count;
+
+/// Method to get the index of the given catalog listing item
+- (int)findIndexOfItem:(CatalogItem *)item;
+
 @end
